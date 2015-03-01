@@ -1,13 +1,19 @@
 #include "ofApp.h"
 
+
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    settings.loadFile("settings.xml");
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+    int numImages = settings.getNumTags("image");
+    for(int i = 0; i < numImages; i++) {
+        settings.pushTag("image", i);
+    
+        settings.popTag();
+    }
 }
 
 //--------------------------------------------------------------
